@@ -20,3 +20,11 @@ h1 { margin-block: .4rem .9rem; font-size: clamp(1.9rem, 5vw, 3.5rem); font-weig
 h2 { font-size: 1.25rem; margin-bottom: .5rem; }
 .details p { color: #3c535d; }
 @media (max-width: 36rem) { .details, .intro { grid-template-columns: 1fr; } }
+
+.back-button { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .45rem .85rem; border: 1px solid #77948b; border-radius: .55rem; background: linear-gradient(#fff, #e5f6ef); box-shadow: 0 3px 0 #77948b; font-weight: 650; text-decoration: none; }
+.back-button:hover { text-decoration: underline; }
+.back-button:active { transform: translateY(2px); box-shadow: 0 1px 0 #77948b; }
+.app-screenshots { margin-top: 2rem; }
+.screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: 1rem; }
+.screenshot-grid a { display: block; border-radius: .65rem; }
+.screenshot-grid img { display: block; width: 100%; height: auto; border: 1px solid #ccdadd; border-radius: .65rem; }

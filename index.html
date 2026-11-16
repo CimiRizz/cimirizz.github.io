@@ -228,6 +228,40 @@
     article .detail-more { margin-top: .65rem; font-size: .875rem; }
     .work-style-copy { max-width: 68ch; }
     .work-style-copy p + p { margin-top: .7rem; }
+    main > .delivery-metrics { padding-top: clamp(1.75rem, 4vw, 2.75rem); }
+    .delivery-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 0;
+    }
+    .delivery-metrics-grid > div {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: .75rem;
+    }
+    .delivery-metrics-grid dt { font-weight: 700; }
+    .delivery-metrics-grid dd { margin: 0; }
+    .delivery-metric-value {
+      color: var(--accent);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 750;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+      letter-spacing: -.045em;
+    }
+    .delivery-metric-context { color: var(--muted); font-size: .9rem; }
+    @media (max-width: 60rem) {
+      .delivery-metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 40rem) {
+      .delivery-metrics-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -342,6 +376,31 @@
           <p>I worked on SharePoint Online migration as part of IT service delivery. The work brought together migration, deployment and the handover to service support.</p>
         </article>
       </div>
+    </section>
+    <section class="wrap content-section delivery-metrics" id="delivery-metrics" aria-labelledby="delivery-metrics-title">
+      <h2 id="delivery-metrics-title">Delivery scale and results</h2>
+      <dl class="delivery-metrics-grid">
+        <div>
+          <dt>Program value</dt>
+          <dd class="delivery-metric-value">~€15M</dd>
+          <dd class="delivery-metric-context">Program supported through portfolio planning, capacity and risk management.</dd>
+        </div>
+        <div>
+          <dt>Largest project group</dt>
+          <dd class="delivery-metric-value">400</dd>
+          <dd class="delivery-metric-context">People in the largest project group I worked with.</dd>
+        </div>
+        <div>
+          <dt>Team size</dt>
+          <dd class="delivery-metric-value">Up to 12</dd>
+          <dd class="delivery-metric-context">People in the teams I led.</dd>
+        </div>
+        <div>
+          <dt>Test automation coverage</dt>
+          <dd class="delivery-metric-value">~80%</dd>
+          <dd class="delivery-metric-context">Coverage I helped achieve in the Nokia S60 testing program.</dd>
+        </div>
+      </dl>
     </section>
     <section class="leadership" id="leadership" aria-labelledby="leadership-title">
       <div class="wrap leadership-layout">

@@ -28,11 +28,15 @@
     .wrap { width: min(66rem, calc(100% - 2.5rem)); margin-inline: auto; }
     header, footer { padding-block: 1.3rem; }
     header { border-bottom: 1px solid var(--border); }
-    header .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: .85rem 1rem; }
-    header .brand { flex: 0 0 auto; }
-    .header-links, .header-nav { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem .5rem; }
-    .header-nav { margin-inline-start: auto; }
-    .header-nav .linkedin-button { margin-inline-start: clamp(1.25rem, 3vw, 2.5rem); }
+    header .wrap { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem clamp(1.25rem, 3vw, 2.5rem); }
+    .header-identity, .header-links, .header-nav, .header-profiles {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .7rem .5rem;
+    }
+    .header-identity { column-gap: .9rem; }
+    header .brand { font-size: clamp(1.2rem, 2vw, 1.45rem); }
+    @media (min-width: 66rem) {
+      header .wrap { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; }
+    }
     a { color: var(--accent); text-underline-offset: .2em; }
     a:hover { text-decoration-thickness: .15em; }
     a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
@@ -40,7 +44,7 @@
     .hero { padding-block: clamp(3rem, 8vw, 6rem) 3rem; }
     .role, .category { color: var(--accent); font-size: .85rem; font-weight: 750; letter-spacing: .06em; }
     h1, h2, h3, p { margin: 0; }
-    h1 { font-size: clamp(2.75rem, 9vw, 6rem); line-height: 1.03; font-weight: 750; letter-spacing: -.055em; margin-block: .6rem 1rem; }
+    h1 { font-size: clamp(3rem, 9.5vw, 6.6rem); line-height: 1.03; font-weight: 750; letter-spacing: -.055em; margin-block: .6rem 1rem; }
     h2 { font-size: clamp(1.55rem, 4vw, 2.2rem); font-weight: 750; letter-spacing: -.028em; margin-bottom: 1rem; }
     h3 { font-size: 1.25rem; line-height: 1.3; margin-block: .45rem .7rem; }
     p { color: var(--muted); }
@@ -96,7 +100,7 @@
       color: #fff;
       padding-block: clamp(3rem, 9vw, 7.25rem);
     }
-    .hero .role { color: #91e0ce; }
+    .hero .role { color: #91e0ce; font-size: clamp(1rem, 1.8vw, 1.25rem); letter-spacing: .03em; }
     .hero .intro { color: #e0eeee; }
     main > .content-section { padding-block: clamp(2.5rem, 5vw, 4.25rem); }
     .content-section + .content-section { border-top: 1px solid var(--border); }
@@ -154,11 +158,8 @@
     @media (min-width: 56rem) {
       .delivery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
-    @media (max-width: 67rem) {
-      .header-nav { flex-basis: 100%; margin-inline-start: 0; }
-    }
     @media (max-width: 40rem) {
-      .header-links { flex-basis: 100%; }
+      .header-identity { flex-basis: 100%; }
       .delivery-grid article { font-size: .9375rem; line-height: 1.6; }
     }
     .app-heading, .book-card {
@@ -229,23 +230,28 @@
 <body>
   <header>
     <div class="wrap">
-      <a class="brand" href="#top">Kimmo Rissanen</a>
-      <div class="header-links" role="group" aria-label="CV downloads">
-        <a class="top-button" href="CV_KimmoRissanen.pdf" download>Download CV</a>
-        <a class="top-button" href="CV_KimmoRissanenLong.pdf" download>CV ATS friendly</a>
+      <div class="header-identity">
+        <a class="brand" href="#top">Kimmo Rissanen</a>
+        <div class="header-links" role="group" aria-label="CV downloads">
+          <a class="top-button" href="CV_KimmoRissanen.pdf" download>Download CV</a>
+          <a class="top-button" href="CV_KimmoRissanenLong.pdf" download>ATS friendly CV</a>
+        </div>
       </div>
       <nav class="header-nav" aria-label="Portfolio">
         <a class="top-button" href="#delivery">IT delivery</a>
         <a class="top-button" href="#leadership">Leadership</a>
         <a class="top-button" href="#apps">Apps</a>
-        <a class="top-button linkedin-button" href="https://www.linkedin.com/in/krissanen/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+        <a class="top-button" href="#writing">Writing</a>
+      </nav>
+      <div class="header-profiles" role="group" aria-label="Profiles">
+        <a class="top-button" href="https://www.linkedin.com/in/krissanen/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
           <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <rect width="24" height="24" rx="3" fill="#0a66c2"/>
             <path fill="#fff" d="M5.5 9h2.8v9.5H5.5zM6.9 4.5a1.65 1.65 0 1 0 0 3.3 1.65 1.65 0 0 0 0-3.3zM10.5 9h2.7v1.3h.04a3 3 0 0 1 2.7-1.5c2.9 0 3.4 1.8 3.4 4.1v5.6h-2.8v-5c0-1.2-.02-2.3-1.5-2.3s-1.7 1.2-1.7 2.25v5.05h-2.8z"/>
           </svg>
         </a>
         <a class="top-button" href="https://github.com/CimiRizz" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="currentColor"><path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"/></svg></a>
-      </nav>
+      </div>
     </div>
   </header>
   <main id="top">

@@ -228,7 +228,7 @@
     article .detail-more { margin-top: .65rem; font-size: .875rem; }
     #how-i-work .work-style-copy { width: 100%; max-width: none; }
     .work-style-copy p + p { margin-top: .7rem; }
-    main > .delivery-metrics { padding-top: clamp(1.75rem, 4vw, 2.75rem); }
+    main > :is(#delivery, #delivery-metrics, #writing) { padding-block-start: 0; }
     .delivery-metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));

@@ -236,6 +236,21 @@
     #how-i-work .work-style-copy { width: 100%; max-width: none; }
     .work-style-copy p + p { margin-top: .7rem; }
     main > :is(#delivery, #delivery-metrics, #writing) { padding-block-start: 0; }
+    main > #how-i-work { padding-block: clamp(1rem, 2.5vw, 1.5rem); }
+    main > #delivery { padding-block-end: clamp(1rem, 2.5vw, 1.5rem); }
+    .footer-contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: .5rem 1rem;
+    }
+    .footer-contact .footer-email { justify-self: center; overflow-wrap: anywhere; }
+    .footer-contact .footer-phone { justify-self: end; white-space: nowrap; }
+    @media (max-width: 40rem) {
+      .footer-contact { grid-template-columns: minmax(0, 1fr); }
+      .footer-contact .footer-phone { justify-self: center; }
+      .footer-contact p { text-align: center; }
+    }
     .delivery-metrics-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -575,7 +590,11 @@
     </section>
   </main>
   <footer>
-    <div class="wrap"><p>Kimmo Rissanen</p></div>
+    <div class="wrap footer-contact">
+      <p>Kimmo Rissanen</p>
+      <a class="footer-email" href="mailto:kimmo.rissanen@engineer.com">kimmo.rissanen@engineer.com</a>
+      <a class="footer-phone" href="tel:+358456912228">+358 45 691 2228</a>
+    </div>
   </footer>
   <script>
     const motionButton = document.querySelector('.motion-button');

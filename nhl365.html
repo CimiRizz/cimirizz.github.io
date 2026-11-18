@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap">
-  <link rel="stylesheet" href="project-details.css">
+  <link rel="stylesheet" href="project-details.css?v=app-buttons-3d">
   <style>
     .screenshot-grid button { display: block; width: 100%; padding: 0; border: 0; border-radius: .65rem; background: transparent; cursor: zoom-in; }
     .screenshot-grid button:focus-visible { outline: 2px solid #006455; outline-offset: 4px; }
@@ -16,15 +16,6 @@
     .screenshot-preview::backdrop { background: #10242ed9; }
     .screenshot-preview button { display: block; margin: 0 0 .5rem auto; padding: .45rem .8rem; cursor: pointer; }
     .screenshot-preview img { display: block; max-width: 100%; max-height: 82vh; height: auto; margin-inline: auto; }
-    .app-intro-row {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: .65rem 1rem;
-    }
-    .app-intro-row p { flex: 1 1 16rem; }
-    .app-intro-row .action { margin: 0 0 0 auto; }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="f8c44266-e617-4fc1-918c-865ecae966a9"></script>
 </head>
@@ -36,16 +27,14 @@
     </div>
   </header>
   <main class="wrap">
-    <div class="intro">
+    <div class="intro nhl-app-intro">
       <div>
         <p class="category">Sports web app</p>
         <h1>NHL365</h1>
+        <p>Follow an NHL team’s schedule and news from one page.</p>
       </div>
       <img class="app-mark" src="data:image/webp;base64,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" width="128" height="128" alt="">
-      <div class="app-intro-row">
-        <p>Follow an NHL team’s schedule and news from one page.</p>
-        <a class="action" href="https://nhl365.onrender.com/" target="_blank" rel="noopener noreferrer" data-portfolio-event="nhl365-open-click">Open NHL365 (opens in a new tab)</a>
-      </div>
+      <a class="action app-launch" href="https://nhl365.onrender.com/" target="_blank" rel="noopener noreferrer" data-portfolio-event="nhl365-open-click">Open NHL365</a>
     </div>
     <div class="details">
         <section><h2>Team schedules</h2><p>Choose a team to see its next games alongside the latest team news. The schedule gives you a quick view of what’s coming up without switching between separate pages.</p></section>

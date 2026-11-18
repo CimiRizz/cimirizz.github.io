@@ -28,3 +28,34 @@ h2 { font-size: 1.25rem; margin-bottom: .5rem; }
 .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: 1rem; }
 .screenshot-grid a { display: block; border-radius: .65rem; }
 .screenshot-grid img { display: block; width: 100%; height: auto; border: 1px solid #ccdadd; border-radius: .65rem; }
+
+.intro .app-launch {
+  color: #fff;
+  background: linear-gradient(#087563, #005448);
+  border: 1px solid #004138;
+  box-shadow: 0 4px 0 #004138, 0 6px 9px #08182155;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+@media (hover: hover) {
+  .intro .app-launch:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 0 #004138, 0 7px 12px #08182166;
+  }
+}
+.intro .app-launch:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #004138;
+}
+.intro .app-launch:focus-visible {
+  outline: 2px solid #91e0ce;
+  outline-offset: 5px;
+}
+.nhl-app-intro > .app-launch {
+  grid-column: 1 / -1;
+  justify-self: end;
+  margin: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro .app-launch { transition: none; }
+}

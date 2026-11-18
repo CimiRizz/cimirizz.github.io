@@ -347,6 +347,7 @@
     .project-count strong { font-size: clamp(1.15rem, 1.75vw, 1.55rem); }
     .delivery-metric-value:not(.project-count) { font-size: clamp(1.4rem, 2.5vw, 2.05rem); white-space: nowrap; }
   </style>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="f8c44266-e617-4fc1-918c-865ecae966a9"></script>
 </head>
 <body>
   <header>
@@ -355,7 +356,7 @@
         <a class="brand" href="#top">Kimmo Rissanen</a>
         <div class="header-links" role="group" aria-label="CV downloads">
           <a class="top-button" href="CV_KimmoRissanen.pdf" download>Download CV</a>
-          <a class="top-button" href="CV_KimmoRissanenATSLong.pdf" download>ATS friendly CV</a>
+          <a class="top-button" href="CV_KimmoRissanenATSLong.pdf" download id="ats-cv-download">ATS friendly CV</a>
         </div>
       </div>
       <nav class="header-nav" aria-label="Portfolio">
@@ -676,6 +677,9 @@
     </div>
   </footer>
   <script>
+    document.getElementById("ats-cv-download").addEventListener("click", () => {
+      window.umami?.track("ats-cv-click");
+    });
     const motionButton = document.querySelector('.motion-button');
     const heroSection = motionButton.closest('.hero');
     const main = heroSection.closest('main');

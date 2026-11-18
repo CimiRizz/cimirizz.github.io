@@ -188,15 +188,15 @@
     .hero { position: relative; isolation: isolate; overflow: hidden; background-position: center; }
     .hero > .wrap { position: relative; display: grid; grid-template-columns: minmax(0, max-content); }
     .server-lights { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; }
-    .server-lights circle { fill: #85fff5; opacity: 0; filter: drop-shadow(0 0 5px #2cf0e5); }
+    .server-lights circle { fill: #d1fffb; opacity: 0; filter: drop-shadow(0 0 5px #40ffee) drop-shadow(0 0 10px #23dcff); }
     .motion-button { display: none; }
     @media (min-width: 46.01rem) and (prefers-reduced-motion: no-preference) {
-      .hero.has-motion .server-lights { opacity: .86; }
-      .hero.has-motion .server-lights circle { animation: server-pulse 3.9s ease-in-out infinite; }
-      .hero.has-motion .server-lights circle:nth-child(2n) { animation-duration: 4.8s; animation-delay: -1.8s; }
-      .hero.has-motion .server-lights circle:nth-child(3n) { animation-delay: -2.7s; }
-      .hero.has-motion .server-lights circle:nth-child(5n) { animation-duration: 5.3s; animation-delay: -3.6s; }
-      .hero.has-motion .server-lights circle:nth-child(7n) { animation-duration: 3.4s; animation-delay: -.8s; }
+      .hero.has-motion .server-lights { opacity: 1; }
+      .hero.has-motion .server-lights circle { animation: server-pulse 6.8s ease-in-out infinite; }
+      .hero.has-motion .server-lights circle:nth-child(2n) { animation-duration: 7.7s; animation-delay: -2.3s; }
+      .hero.has-motion .server-lights circle:nth-child(3n) { animation-delay: -4.5s; }
+      .hero.has-motion .server-lights circle:nth-child(5n) { animation-duration: 8.9s; animation-delay: -5.2s; }
+      .hero.has-motion .server-lights circle:nth-child(7n) { animation-duration: 7.2s; animation-delay: -1.2s; }
       .hero.motion-paused .server-lights circle { animation: none; }
       .hero.has-motion .motion-button:not([hidden]) {
         display: block;
@@ -218,10 +218,9 @@
       .hero { background-position: 66% center; }
     }
     @keyframes server-pulse {
-      0%, 100% { opacity: .08; }
-      35% { opacity: .23; }
-      50% { opacity: .95; }
-      68% { opacity: .18; }
+      0%, 100% { opacity: .14; }
+      30%, 66% { opacity: .7; }
+      43%, 55% { opacity: 1; }
     }
     article h3 .detail-link { display: inline; margin: 0; font-weight: inherit; color: inherit; text-decoration: none; }
     article h3 .detail-link:hover, article h3 .detail-link:focus-visible { text-decoration: underline; }
@@ -262,6 +261,12 @@
     @media (max-width: 40rem) {
       .delivery-metrics-grid { grid-template-columns: 1fr; }
     }
+    .delivery-metric-value.project-count {
+      font-size: clamp(.85rem, 1.3vw, 1rem);
+      letter-spacing: normal;
+      font-weight: 600;
+    }
+    .project-count strong { font-size: clamp(1.55rem, 2.7vw, 2.2rem); }
   </style>
 </head>
 <body>
@@ -294,30 +299,48 @@
   <main id="top">
     <section class="hero" aria-labelledby="name">
       <svg class="server-lights" aria-hidden="true" viewBox="0 0 1942 809" preserveAspectRatio="xMidYMid slice">
-        <circle cx="1658" cy="505" r="4"/>
-        <circle cx="1823" cy="542" r="4"/>
-        <circle cx="1858" cy="509" r="3"/>
-        <circle cx="1861" cy="155" r="3"/>
-        <circle cx="1908" cy="409" r="3"/>
-        <circle cx="1824" cy="229" r="2.8"/>
-        <circle cx="1847" cy="223" r="2.6"/>
-        <circle cx="1826" cy="365" r="2.6"/>
-        <circle cx="1840" cy="363" r="2.1"/>
-        <circle cx="1853" cy="405" r="2.6"/>
-        <circle cx="1918" cy="426" r="2.4"/>
-        <circle cx="1938" cy="445" r="2.4"/>
-        <circle cx="1932" cy="560" r="2.6"/>
-        <circle cx="1875" cy="78" r="2.4"/>
-        <circle cx="1657" cy="306" r="2.2"/>
-        <circle cx="1677" cy="274" r="2.1"/>
-        <circle cx="1655" cy="479" r="2.3"/>
-        <circle cx="1572" cy="274" r="2.2"/>
-        <circle cx="1585" cy="483" r="2"/>
-        <circle cx="1569" cy="500" r="2"/>
-        <circle cx="1535" cy="489" r="2"/>
-        <circle cx="1432" cy="361" r="1.8"/>
-        <circle cx="1429" cy="413" r="1.8"/>
-        <circle cx="1419" cy="465" r="1.8"/>
+        <circle cx="1658" cy="505" r="5.4"/>
+        <circle cx="1823" cy="542" r="5.4"/>
+        <circle cx="1858" cy="509" r="4.1"/>
+        <circle cx="1861" cy="155" r="4.1"/>
+        <circle cx="1908" cy="409" r="4.1"/>
+        <circle cx="1824" cy="229" r="3.8"/>
+        <circle cx="1847" cy="223" r="3.5"/>
+        <circle cx="1826" cy="365" r="3.5"/>
+        <circle cx="1840" cy="363" r="3.2"/>
+        <circle cx="1853" cy="405" r="3.5"/>
+        <circle cx="1918" cy="426" r="3.2"/>
+        <circle cx="1938" cy="445" r="3.2"/>
+        <circle cx="1932" cy="560" r="3.5"/>
+        <circle cx="1875" cy="78" r="3.2"/>
+        <circle cx="1657" cy="306" r="3.2"/>
+        <circle cx="1677" cy="274" r="3.2"/>
+        <circle cx="1655" cy="479" r="3.2"/>
+        <circle cx="1572" cy="274" r="3.2"/>
+        <circle cx="1585" cy="483" r="3.2"/>
+        <circle cx="1569" cy="500" r="3.2"/>
+        <circle cx="1535" cy="489" r="3.2"/>
+        <circle cx="1432" cy="361" r="3.2"/>
+        <circle cx="1429" cy="413" r="3.2"/>
+        <circle cx="1419" cy="465" r="3.2"/>
+        <circle cx="1454" cy="387" r="3.6"/>
+        <circle cx="1465" cy="442" r="3.6"/>
+        <circle cx="1497" cy="414" r="3.6"/>
+        <circle cx="1515" cy="462" r="3.6"/>
+        <circle cx="1546" cy="382" r="3.6"/>
+        <circle cx="1558" cy="435" r="3.6"/>
+        <circle cx="1595" cy="308" r="3.6"/>
+        <circle cx="1606" cy="396" r="3.6"/>
+        <circle cx="1617" cy="455" r="3.6"/>
+        <circle cx="1640" cy="350" r="3.6"/>
+        <circle cx="1672" cy="437" r="3.6"/>
+        <circle cx="1687" cy="391" r="3.6"/>
+        <circle cx="1715" cy="327" r="3.6"/>
+        <circle cx="1736" cy="414" r="3.6"/>
+        <circle cx="1756" cy="517" r="3.6"/>
+        <circle cx="1780" cy="382" r="3.6"/>
+        <circle cx="1810" cy="472" r="3.6"/>
+        <circle cx="1885" cy="476" r="3.6"/>
       </svg>
       <button class="motion-button" type="button" hidden>Pause background animation</button>
       <div class="wrap">
@@ -381,6 +404,11 @@
       <h2 id="delivery-metrics-title">Delivery scale and results</h2>
       <dl class="delivery-metrics-grid">
         <div>
+          <dt>Project volume</dt>
+          <dd class="delivery-metric-value project-count"><strong>&gt;120</strong> pre-projects</dd>
+          <dd class="delivery-metric-value project-count"><strong>&gt;150</strong> post projects</dd>
+        </div>
+        <div>
           <dt>Value</dt>
           <dd class="delivery-metric-value">up to €15M</dd>
           <dd class="delivery-metric-context">Value of the largest program I worked on.</dd>
@@ -394,11 +422,6 @@
           <dt>Team size</dt>
           <dd class="delivery-metric-value">6–24</dd>
           <dd class="delivery-metric-context">People in the teams I led.</dd>
-        </div>
-        <div>
-          <dt>Projects finished early</dt>
-          <dd class="delivery-metric-value">80%</dd>
-          <dd class="delivery-metric-context">Share of projects completed before their deadlines.</dd>
         </div>
       </dl>
     </section>

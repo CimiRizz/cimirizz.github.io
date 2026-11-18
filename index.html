@@ -237,7 +237,8 @@
     .work-style-copy p + p { margin-top: .7rem; }
     main > :is(#delivery, #delivery-metrics, #writing) { padding-block-start: 0; }
     main > #how-i-work { padding-block: clamp(1rem, 2.5vw, 1.5rem); }
-    main > #delivery { padding-block-end: clamp(1rem, 2.5vw, 1.5rem); }
+    main > :is(#delivery, #delivery-metrics) { padding-block-end: clamp(1rem, 2.5vw, 1.5rem); }
+    main > :is(#leadership, #apps) { padding-block: clamp(1.25rem, 3vw, 2rem); }
     .footer-contact {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);

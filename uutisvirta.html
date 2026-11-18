@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..800&amp;display=swap">
-  <link rel="stylesheet" href="project-details.css?v=app-buttons-3d">
+  <link rel="stylesheet" href="project-details.css?v=app-intros-2">
   <style>
     .screenshot-grid button { display: block; width: 100%; padding: 0; border: 0; border-radius: .65rem; background: transparent; cursor: zoom-in; }
     .screenshot-grid button:focus-visible { outline: 2px solid #006455; outline-offset: 4px; }
@@ -16,15 +16,6 @@
     .screenshot-preview::backdrop { background: #10242ed9; }
     .screenshot-preview button { display: block; margin: 0 0 .5rem auto; padding: .45rem .8rem; cursor: pointer; }
     .screenshot-preview img { display: block; max-width: 100%; max-height: 82vh; height: auto; margin-inline: auto; }
-    .app-intro-row {
-      grid-column: 1 / -1;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: .65rem 1rem;
-    }
-    .app-intro-row p { flex: 1 1 16rem; }
-    .app-intro-row .action { margin: 0 0 0 auto; }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="f8c44266-e617-4fc1-918c-865ecae966a9"></script>
 </head>
@@ -36,16 +27,14 @@
     </div>
   </header>
   <main class="wrap">
-    <div class="intro">
+    <div class="intro app-detail-intro">
       <div>
         <p class="category">Finnish news reader</p>
         <h1>Uutisvirta</h1>
+        <p>Browse headlines from Ilta-Sanomat and Iltalehti in one feed.</p>
       </div>
       <img class="app-mark" src="data:image/webp;base64,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" width="128" height="128" alt="">
-      <div class="app-intro-row">
-        <p>Browse headlines from Ilta-Sanomat and Iltalehti in one feed.</p>
-        <a class="action app-launch" href="https://uutisvirta-7l8b.onrender.com/" target="_blank" rel="noopener noreferrer" data-portfolio-event="uutisvirta-open-click">Open Uutisvirta</a>
-      </div>
+      <a class="action app-launch" href="https://uutisvirta-7l8b.onrender.com/" target="_blank" rel="noopener noreferrer" data-portfolio-event="uutisvirta-open-click">Open Uutisvirta</a>
     </div>
     <div class="details">
         <section><h2>Choose your sources</h2><p>Select IS, IL or both. The feed shows the source with each story so readers can tell which publication it came from.</p></section>

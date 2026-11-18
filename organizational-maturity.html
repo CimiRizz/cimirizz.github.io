@@ -28,8 +28,8 @@
 <body>
   <header>
     <div class="wrap">
-      <a class="brand" href="index.html">Kimmo Rissanen</a>
-      <nav aria-label="Portfolio"><a class="back-button" href="index.html#writing">Back to Writing</a></nav>
+      <a class="brand" href="index.html" data-portfolio-event="home-click">Kimmo Rissanen</a>
+      <nav aria-label="Portfolio"><a class="back-button" href="index.html#writing" data-portfolio-event="back-to-writing-click">Back to Writing</a></nav>
     </div>
   </header>
   <main class="wrap">
@@ -50,16 +50,16 @@
       <h2 id="page-samples-title">Sample pages</h2>
       <div class="sample-grid">
         <figure>
-          <button type="button" aria-label="Enlarge Organizational Maturity sample page 1"><img src="screenshots/organizational-maturity-page-01.webp" width="1314" height="1700" alt="Organizational Maturity – sample page 1" loading="eager"></button>
+          <button type="button" aria-label="Enlarge Organizational Maturity sample page 1" data-portfolio-event="sample-page-1-enlarge"><img src="screenshots/organizational-maturity-page-01.webp" width="1314" height="1700" alt="Organizational Maturity – sample page 1" loading="eager"></button>
         </figure>
         <figure>
-          <button type="button" aria-label="Enlarge Organizational Maturity sample page 2"><img src="screenshots/organizational-maturity-page-02.webp" width="1314" height="1700" alt="Organizational Maturity – sample page 2" loading="eager"></button>
+          <button type="button" aria-label="Enlarge Organizational Maturity sample page 2" data-portfolio-event="sample-page-2-enlarge"><img src="screenshots/organizational-maturity-page-02.webp" width="1314" height="1700" alt="Organizational Maturity – sample page 2" loading="eager"></button>
         </figure>
       </div>
     </section>
   </main>
   <dialog class="sample-dialog" aria-label="Book page preview">
-    <form method="dialog"><button type="submit">Close</button></form>
+    <form method="dialog"><button type="submit" data-portfolio-event="image-dialog-close">Close</button></form>
     <img alt="">
   </dialog>
   <script>
@@ -73,6 +73,18 @@
         sampleDialog.showModal();
       });
     });
+  </script>
+  <script>
+    (() => {
+      function trackClick(event) {
+        const control = event.target.closest?.('[data-portfolio-event]');
+        if (!control || (event.type === 'auxclick' &&
+            (event.button !== 1 || !control.matches('a[href]')))) return;
+        window.umami?.track(control.dataset.portfolioEvent);
+      }
+      document.addEventListener('click', trackClick, true);
+      document.addEventListener('auxclick', trackClick, true);
+    })();
   </script>
 </body>
 </html>

@@ -291,19 +291,43 @@
     main > #how-i-work { padding-block: clamp(1rem, 2.5vw, 1.5rem); }
     main > :is(#delivery, #delivery-metrics) { padding-block-end: clamp(1rem, 2.5vw, 1.5rem); }
     main > :is(#leadership, #apps) { padding-block: clamp(1.25rem, 3vw, 2rem); }
+    .site-footer {
+      padding-block: clamp(1rem, 3vw, 1.65rem);
+      background: #133640;
+      border-top: 2px solid #49777b;
+      color: #f4faf9;
+    }
     .footer-contact {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, auto);
       align-items: center;
-      gap: .5rem 1rem;
+      gap: .65rem 1.5rem;
     }
-    .footer-contact { font-weight: 700; }
-    .footer-contact .footer-email { justify-self: center; overflow-wrap: anywhere; }
-    .footer-contact .footer-phone { justify-self: end; white-space: nowrap; }
-    @media (max-width: 40rem) {
+    .footer-name {
+      color: inherit;
+      font-size: clamp(1.5rem, 3vw, 1.95rem);
+      font-weight: 720;
+      letter-spacing: -.025em;
+      line-height: 1.2;
+    }
+    .footer-links {
+      display: grid;
+      justify-items: end;
+      gap: .2rem;
+      text-align: right;
+    }
+    .footer-links a {
+      color: inherit;
+      font-weight: 550;
+      line-height: 1.45;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .footer-links .footer-phone { color: #afe6df; }
+    .footer-links a:hover, .footer-links a:focus-visible { text-decoration: underline; }
+    @media (max-width: 34rem) {
       .footer-contact { grid-template-columns: minmax(0, 1fr); }
-      .footer-contact .footer-phone { justify-self: center; }
-      .footer-contact p { text-align: center; }
+      .footer-links { justify-items: start; text-align: left; }
     }
     .delivery-metrics-grid {
       display: grid;
@@ -669,11 +693,13 @@
       </div>
     </section>
   </main>
-  <footer>
+  <footer class="site-footer">
     <div class="wrap footer-contact">
-      <p>Kimmo Rissanen</p>
-      <a class="footer-email" href="mailto:kimmo.rissanen@engineer.com" data-portfolio-event="email-click">kimmo.rissanen@engineer.com</a>
-      <a class="footer-phone" href="tel:+358456912228" data-portfolio-event="phone-click">+358 45 691 2228</a>
+      <p class="footer-name">Kimmo Rissanen</p>
+      <div class="footer-links">
+        <a class="footer-email" href="mailto:kimmo.rissanen@engineer.com" data-portfolio-event="email-click">kimmo.rissanen@engineer.com</a>
+        <a class="footer-phone" href="tel:+358456912228" data-portfolio-event="phone-click">+358 45 691 2228</a>
+      </div>
     </div>
   </footer>
   <script>

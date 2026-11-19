@@ -1,90 +1,103 @@
 <!doctype html>
-<html lang="fi">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#132724">
-  <title>Keskustele Uutisista joista ei voi keskustella</title>
-  <link rel="stylesheet" href="/style.css">
-  <script src="/app.js" defer></script>
+  <meta name="description" content="Kimmo Rissanen's portfolio of IT delivery, digital transformation, and software projects.">
+  <title>Kimmo Rissanen | IT Delivery Portfolio</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --background: #f5f4ef;
+      --surface: #fffefa;
+      --ink: #162624;
+      --muted: #435753;
+      --accent: #006455;
+      --border: #cfd9d4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--ink);
+      font: 1rem/1.6 system-ui, sans-serif;
+    }
+    .wrap { width: min(66rem, calc(100% - 2.5rem)); margin-inline: auto; }
+    header, footer { padding-block: 1.3rem; }
+    header { border-bottom: 1px solid var(--border); }
+    header .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 1.5rem; }
+    nav { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: .15em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    .brand { color: var(--ink); font-weight: 750; text-decoration: none; }
+    .hero { padding-block: clamp(3rem, 8vw, 6rem) 3rem; }
+    .role, .category { color: var(--accent); font-size: .85rem; font-weight: 750; letter-spacing: .06em; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: clamp(2.75rem, 9vw, 6rem); line-height: 1.03; letter-spacing: -.065em; margin-block: .6rem 1rem; }
+    h2 { font-size: clamp(1.55rem, 4vw, 2.2rem); letter-spacing: -.035em; margin-bottom: 1rem; }
+    h3 { font-size: 1.25rem; line-height: 1.3; margin-block: .45rem .7rem; }
+    p { color: var(--muted); }
+    .intro { max-width: 39rem; font-size: clamp(1.05rem, 2vw, 1.3rem); }
+    main > section + section { padding-bottom: 3rem; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    article { background: var(--surface); border: 1px solid var(--border); border-radius: .9rem; padding: clamp(1.1rem, 3vw, 1.8rem); }
+    article a { display: inline-block; margin-top: 1rem; font-weight: 700; }
+    footer { border-top: 1px solid var(--border); }
+    @media (max-width: 40rem) { .grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <header class="masthead"><div class="wrap">
-    <a class="brand" href="/">Kommentaattori</a>
-    <span class="masthead-tagline">keskustele uutisista joita ei voi kommentoida</span>
-  </div></header>
-  <div class="wrap">
-    <aside class="ad-banner" data-ad-slot="top" aria-label="Mainosbannerin paikka">Mainospaikka</aside>
-  </div>
-  <main class="wrap">
-    <section id="forum">
-      <div class="intro intro-desktop">
-        <p>Kommentaattorissa voit kommentoida Ilta-Sanomien ja Iltalehden luetuimpia uutisia, joita et voi kommentoida lehden sivulla.</p>
-      </div>
-      <div class="filter" role="group" aria-label="Uutislähde">
-        <button type="button" data-source="IS" aria-pressed="true" aria-label="Ilta-Sanomat">
-          <img src="/logos/logo-is.png" alt="Ilta-Sanomat">
-        </button>
-        <button type="button" data-source="IL" aria-pressed="true" aria-label="Iltalehti">
-          <img src="/logos/logo-il.png" alt="Iltalehti">
-        </button>
-      </div>
-      <p class="intro-mobile">Voit kommentoida IS ja IL uutisia joita ei voi kommentoida lehden sivulla.</p>
-      <p id="status" role="status">Tarkistetaan lehtien listoja…</p>
-      <p id="updated" class="meta"></p>
-      <ol id="threads"></ol>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top">Kimmo Rissanen</a>
+      <nav aria-label="Portfolio">
+        <a href="#delivery">IT delivery</a>
+        <a href="#apps">Apps</a>
+        <a href="https://github.com/KimmoRissanen">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="top">
+    <section class="hero" aria-labelledby="name">
+      <p class="role">IT delivery · Project management · Quality assurance</p>
+      <h1 id="name">Kimmo Rissanen</h1>
+      <p class="intro">I manage IT projects that bring together business stakeholders and technical teams. My experience spans enterprise system rollouts, portfolio governance, and software testing.</p>
+      <!-- Add your LinkedIn URL and a link to your CV here when ready. -->
     </section>
-    <section id="thread" hidden>
-      <div class="thread-actions">
-        <a class="back" href="#">
-          <span class="thread-action-icon" aria-hidden="true"></span>
-          <span><span class="thread-action-arrow" aria-hidden="true">← </span>Keskustelut</span>
-        </a>
-        <a id="article-original" class="article-original" target="_blank" rel="noopener noreferrer" hidden>
-          <span>Avaa alkuperäinen <span class="thread-action-last-word">uutinen</span><span class="thread-action-arrow" aria-hidden="true"> ↗</span></span>
-          <span class="thread-action-icon" aria-hidden="true"></span>
-        </a>
+    <section id="delivery" aria-labelledby="delivery-title">
+      <h2 id="delivery-title">Selected IT delivery work</h2>
+      <div class="grid">
+        <article>
+          <p class="category">Enterprise transformation</p>
+          <h3>SAP S/4HANA</h3>
+          <p>Worked across integration, data migration, testing, and deployment, from preparing interfaces and migrated data for testing through rollout.</p>
+        </article>
+        <article>
+          <p class="category">Program governance</p>
+          <h3>Portfolio and delivery governance</h3>
+          <p>Developed a delivery framework and handbook and worked on portfolio planning, capacity, and risk management for a program valued at approximately €15 million.</p>
+        </article>
       </div>
-      <div id="article"></div>
-      <form id="reply">
-        <h2>Kirjoita viesti</h2>
-        <label>Nimimerkki<input name="author" required maxlength="32" autocomplete="off"></label>
-        <label>Viesti<textarea name="body" required maxlength="3000" rows="4"></textarea></label>
-        <button class="primary">Lähetä viesti</button>
-      </form>
-      <p id="thread-status" role="status"></p>
-      <ul id="messages"></ul>
     </section>
-    <section id="moderation" hidden>
-      <a class="back" href="#">← Keskustelut</a>
-      <h1>Ylläpito</h1>
-      <form id="admin">
-        <label>Ylläpitäjän avain<input name="token" type="password" required autocomplete="off"></label>
-        <button class="primary">Avaa ilmoitukset</button>
-      </form>
-      <form id="lock" hidden>
-        <label>Ketjun numero<input name="id" type="number" min="1" step="1" required></label>
-        <button name="action" value="lock">Lukitse</button>
-        <button name="action" value="unlock">Avaa lukitus</button>
-      </form>
-      <p id="admin-status" role="status"></p>
-      <ul id="reports"></ul>
+    <section id="apps" aria-labelledby="apps-title">
+      <h2 id="apps-title">Independent apps</h2>
+      <div class="grid">
+        <article>
+          <p class="category">Sports web app</p>
+          <h3>NHL365</h3>
+          <p>Follow an NHL team’s upcoming games and news, with game times displayed in your local time or the venue’s time zone.</p>
+        </article>
+        <article>
+          <p class="category">Mobile network mapping</p>
+          <h3>Signal Map</h3>
+          <p>Explore your serving cell and nearby mapped cells, with visual indicators for the network operator and radio technology.</p>
+        </article>
+      </div>
     </section>
   </main>
-  <footer class="wrap">
-    <p>Riippumaton keskustelupalsta, joka kannattaa vapaata keskustelukulttuuria.</p>
-    <details class="forum-rules">
-      <summary>Palstan säännöt</summary>
-      <ol>
-        <li>Pysy uutisen aiheessa ja perustele mielipiteesi.</li>
-        <li>Kohtele muita kunnioittavasti. Henkilökohtaiset hyökkäykset, uhkailu ja vihapuhe ovat kiellettyjä.</li>
-        <li>Kunnioita yksityisyyttä. Älä julkaise muiden yksityisiä tietoja tai yhteystietoja.</li>
-        <li>Merkitse lähteet ja kunnioita tekijänoikeuksia. Linkitä alkuperäiseen juttuun, jos viittaat siihen.</li>
-        <li>Vältä mainoksia, roskapostia ja saman viestin toistamista.</li>
-        <li>Ilmoita asiattomista viesteistä viestin ilmoituspainikkeella. Ylläpito voi poistaa sääntöjä rikkovia viestejä ja lukita ketjuja.</li>
-      </ol>
-      <a class="moderation-link" href="#yllapito">Ylläpito</a>
-    </details>
+  <footer>
+    <div class="wrap"><p>Kimmo Rissanen</p></div>
   </footer>
 </body>
 </html>
